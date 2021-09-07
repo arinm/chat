@@ -1,0 +1,12 @@
+{
+	"private": true,
+	"name": "chat-server",
+	"version": "0.0.0",
+	"main": "lib/main.js",
+	"scripts": {
+		"start": "node ."
+	},
+	"dependencies": {
+		"ws": "^7.5.2"
+	}
+}

@@ -1,5 +1,5 @@
 # chat
-salutare(scuze de intarziere).
+salutare(sorry for delay).
 
 folder client: yarn install -> yarn dev
 folder dev: yarn install -> yarn start

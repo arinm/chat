@@ -19,11 +19,6 @@ export const ChatPage = () => {
 			const message = JSON.parse(ev.data);
 			setMessages((_messages) => [..._messages, message]);
 		};
-
-		return () => {
-			wSocket.current.close();
-			console.log("return")
-		};
 	}, []);
 
 	const send = () => {

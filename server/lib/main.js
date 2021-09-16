@@ -5,7 +5,6 @@ const server = new WebSocket.Server({ port: 8080 },
 );
 
 const users = new Set();
-const recentMessages = [];
 
 const sendMessage = (message) => {
 	for (const user of users) {
@@ -33,29 +32,14 @@ server.on('connection', (socket) => {
 				return;
 			}
 
-			const numberOfRecentMessages = recentMessages
-				.filter((message) => message.sender === parsedMessage.sender)
-				.length;
-
 			const verifiedMessage = {
 				sender: parsedMessage.sender,
 				body: parsedMessage.body,
-				sentAt: Date.now(),
 			};
 
 			sendMessage(verifiedMessage);
-
-			userRef.lastActiveAt = Date.now();
-
-			recentMessages.push(verifiedMessage);
-			setTimeout(() => recentMessages.shift(), 60000);
 		} catch (error) {
 			console.error('Error parsing message!', error);
 		}
-	});
-
-	socket.on('close', (code, reason) => {
-		console.log(`User disconnected with code ${code} and reason ${reason}!`);
-		users.delete(userRef);
 	});
 });

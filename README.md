@@ -1,5 +1,5 @@
 # chat
-salutare(sorry for delay).
+chat react js .
 
 folder client: yarn install -> yarn dev;
 folder dev: yarn install -> yarn start
